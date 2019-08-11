@@ -3,4 +3,5 @@
     <dimen name="padding_top">16dp</dimen>
     <dimen name="padding">16dp</dimen>
     <dimen name="nav_head_height">176dp</dimen>
+    <dimen name="padding_inputbox">7dp</dimen>
 </resources>

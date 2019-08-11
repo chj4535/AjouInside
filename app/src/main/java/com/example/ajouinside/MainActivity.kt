@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_gallery_popularity_ranking.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -31,6 +32,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        var DataList = ArrayList<myGroup>()
+        var temp = myGroup("한글")
+        temp.child.add("ㄱ")
+        temp.child.add("ㄴ")
+        temp.child.add("ㄷ")
+        DataList.add(temp)
+        temp = myGroup("영어")
+        temp.child.add("ㄱ")
+        temp.child.add("ㄴ")
+        temp.child.add("ㄷ")
+        DataList.add(temp)
+        temp = myGroup("숫자")
+        temp.child.add("ㄱ")
+        temp.child.add("ㄴ")
+        temp.child.add("ㄷ")
+        DataList.add(temp)
+
+        expand_list.setAdapter(ExpandAdapter(this,expand_list,DataList))
 
     }
 
