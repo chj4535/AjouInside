@@ -5,6 +5,6 @@ class myGroup(name:String){
     var groupName=String()
     init {
         this.groupName=name
-        child=ArrayList<String>()
+        child=ArrayList()
     }
 }

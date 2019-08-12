@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_gallery_popularity_ranking.*
+import kotlinx.android.synthetic.main.activity_gallerylist.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -34,23 +35,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView.setNavigationItemSelectedListener(this)
 
         var DataList = ArrayList<myGroup>()
-        var temp = myGroup("한글")
-        temp.child.add("ㄱ")
-        temp.child.add("ㄴ")
-        temp.child.add("ㄷ")
-        DataList.add(temp)
-        temp = myGroup("영어")
-        temp.child.add("ㄱ")
-        temp.child.add("ㄴ")
-        temp.child.add("ㄷ")
-        DataList.add(temp)
-        temp = myGroup("숫자")
-        temp.child.add("ㄱ")
-        temp.child.add("ㄴ")
-        temp.child.add("ㄷ")
+        var temp = myGroup("인기순위")
+        temp.child.add("인기 갤러리1")
+        temp.child.add("인기 갤러리2")
+        temp.child.add("인기 갤러리3")
         DataList.add(temp)
 
         expand_list.setAdapter(ExpandAdapter(this,expand_list,DataList))
+
+        var galleryList = ArrayList<info_Gallery>()
+        var gallery = info_Gallery("갤러리명1","galleryId1")
+        var board1 = info_Board("게시글1","board1")
+        var board2 = info_Board("게시글2","board2")
+        var board3 = info_Board("게시글3","board3")
+        gallery.boardList.add(board1)
+        gallery.boardList.add(board2)
+        gallery.boardList.add(board3)
+        galleryList.add(gallery)
+        gallery = info_Gallery("갤러리명2","galleryId2")
+        gallery.boardList.add(board1)
+        gallery.boardList.add(board2)
+        gallery.boardList.add(board3)
+        galleryList.add(gallery)
+        gallery = info_Gallery("갤러리명3","galleryId3")
+        gallery.boardList.add(board1)
+        gallery.boardList.add(board2)
+        gallery.boardList.add(board3)
+        galleryList.add(gallery)
+
+        gallery_listview.setAdapter(GalleryAdapter(this,gallery_listview,galleryList))
 
     }
 

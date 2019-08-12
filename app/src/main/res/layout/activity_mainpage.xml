@@ -21,6 +21,8 @@
                 android:background="@color/colorAccent"
                 android:textSize="24sp" android:hint="갤러리&amp;통합검색"/>
     </com.google.android.material.textfield.TextInputLayout>
-    <include android:layout_width="match_parent" android:layout_height="match_parent"
+    <include android:layout_width="match_parent" android:layout_height="wrap_content"
              layout="@layout/activity_gallery_popularity_ranking"/>
+    <include android:layout_width="match_parent" android:layout_height="match_parent"
+             layout="@layout/activity_gallerylist"/>
 </LinearLayout>

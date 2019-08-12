@@ -4,12 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseExpandableListAdapter
-import android.widget.ExpandableListView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 
 class ExpandAdapter(var context: Context,var expandableListView : ExpandableListView,var DataList:ArrayList<myGroup>) : BaseExpandableListAdapter(){
+    
     override fun getGroup(groupPosition: Int): String {
         return DataList[groupPosition].groupName
     }
@@ -29,13 +27,14 @@ class ExpandAdapter(var context: Context,var expandableListView : ExpandableList
             convertView = inflater.inflate(R.layout.activity_gallery_popularity_ranking_group,null)
         }
         val title = convertView?.findViewById<TextView>(R.id.groupName)
+        val btn_expand = convertView?.findViewById<Button>(R.id.btn_expand)
         title?.text = getGroup(groupPosition)
-        title?.setOnClickListener {
+        btn_expand?.setOnClickListener {
             if(expandableListView.isGroupExpanded(groupPosition))
                 expandableListView.collapseGroup(groupPosition)
             else
                 expandableListView.expandGroup(groupPosition)
-            Toast.makeText(context, getGroup(groupPosition),Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, getGroup(groupPosition),Toast.LENGTH_SHORT).show()
         }
         return convertView
     }
@@ -58,7 +57,7 @@ class ExpandAdapter(var context: Context,var expandableListView : ExpandableList
             val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             convertView = inflater.inflate(R.layout.activity_gallery_popularity_ranking_child,null)
         }
-        val title = convertView?.findViewById<TextView>(R.id.groupName)
+        val title = convertView?.findViewById<TextView>(R.id.childName)
         title?.text = getChild(groupPosition,childPosition)
         title?.setOnClickListener {
             Toast.makeText(context, getChild(groupPosition,childPosition),Toast.LENGTH_SHORT).show()
