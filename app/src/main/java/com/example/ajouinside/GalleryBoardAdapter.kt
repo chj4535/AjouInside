@@ -1,12 +1,17 @@
 package com.example.ajouinside
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.content.ContextCompat.startActivity
 
-class GalleryAdapter(var context: Context, var expandableListView : ExpandableListView, var GalleryList:ArrayList<info_Gallery>) : BaseExpandableListAdapter(){
+
+
+class GalleryBoardAdapter(var context: Context, var expandableListView : ExpandableListView, var GalleryList:ArrayList<info_Gallery>) : BaseExpandableListAdapter(){
     override fun getGroup(galleryPosition: Int): String {
         return GalleryList[galleryPosition].galleryName
     }
@@ -26,8 +31,13 @@ class GalleryAdapter(var context: Context, var expandableListView : ExpandableLi
             convertView = inflater.inflate(R.layout.activity_gallerylist_gallery,null)
         }
         val title = convertView?.findViewById<TextView>(R.id.galleryName)
+        val gotobutton = convertView?.findViewById<TextView>(R.id.btn_gotogallery)
         title?.text = getGroup(galleryPosition)
         expandableListView.expandGroup(galleryPosition)
+        gotobutton?.setOnClickListener{
+            val intent = Intent(context, GalleryActivity::class.java)
+            context.startActivity(intent)
+        }
 //        btn_expand?.setOnClickListener {
 //            if(expandableListView.isGroupExpanded(groupPosition))
 //                expandableListView.collapseGroup(groupPosition)

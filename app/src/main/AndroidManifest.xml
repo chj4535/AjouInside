@@ -21,6 +21,16 @@
                 android:name=".MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+                android:label=""
+                android:name=".View_AllGallery"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:label=""
+                android:name=".GalleryActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

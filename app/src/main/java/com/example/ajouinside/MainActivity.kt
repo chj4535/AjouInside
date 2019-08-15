@@ -1,5 +1,6 @@
 package com.example.ajouinside
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -62,8 +63,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         gallery.boardList.add(board2)
         gallery.boardList.add(board3)
         galleryList.add(gallery)
+        gallery = info_Gallery("갤러리명4","galleryId4")
+        gallery.boardList.add(board1)
+        gallery.boardList.add(board2)
+        gallery.boardList.add(board3)
+        galleryList.add(gallery)
+        gallery = info_Gallery("갤러리명5","galleryId5")
+        gallery.boardList.add(board1)
+        gallery.boardList.add(board2)
+        gallery.boardList.add(board3)
+        galleryList.add(gallery)
+        gallery = info_Gallery("갤러리명6","galleryId6")
+        gallery.boardList.add(board1)
+        gallery.boardList.add(board2)
+        gallery.boardList.add(board3)
+        galleryList.add(gallery)
 
-        gallery_listview.setAdapter(GalleryAdapter(this,gallery_listview,galleryList))
+        gallery_listview.setAdapter(GalleryBoardAdapter(this,gallery_listview,galleryList))
 
     }
 
@@ -91,7 +107,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_menu_viewall -> {
-                // Handle the camera action
+                val nextIntent = Intent(this,View_AllGallery::class.java)
+                startActivity(nextIntent)
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
